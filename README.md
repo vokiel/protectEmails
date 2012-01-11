@@ -39,6 +39,7 @@ Options
 There are several options to configure. Defaults are:
 
 	appendCss : true, // adds required css style
+	selector: '.email-protect', // css selector
 	action : 'hover' // action to unhide email
 	
 

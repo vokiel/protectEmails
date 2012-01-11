@@ -9,8 +9,6 @@
  * The MIT License
  * Description and Demo: http://blog.vokiel.com/jquery-protectEmails-plugin
  *
- * 
- * 
  * HTML: <span data-user="admin" data-domain="example.com" class="protect-emails" />
  * CSS: .email-protect:after { content: attr(data-user) '@' attr(data-domain); }
  * JavaScript: $('span').filter('.protect-emails').protectEmails();
@@ -23,6 +21,10 @@
 	$.fn.protectEmails = function( customOptions ) {
 		
 		var options = $.extend({}, $.fn.protectEmails.defaultOptions, customOptions);
+		
+		if ( options.appendCss ){
+			$('head').append("<style type=\"text/css\">" + options.selector.split(",").join(':after,') + ":after { content: attr(data-user) '@' attr(data-domain); }</style>");
+		}
 		
 		return this.on(options.action,function(){
 			var $this = $(this);
@@ -41,7 +43,8 @@
 	 */
 	$.fn.protectEmails.defaultOptions = {
 		appendCss : true,
-		action : 'hover'	
+		selector: '.email-protect',
+		action : 'hover'
 	};
 	
 })(jQuery);
