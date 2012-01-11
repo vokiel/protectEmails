@@ -2,6 +2,7 @@ protectEmails jQuery plugin
 ===========================
 
 This simple plugin protects emails on the page from being stollen by spam bots.
+License: MIT
 
 Usage
 -----
@@ -29,4 +30,10 @@ There are several options to configure. Defaults are:
 	action : 'hover' // action to unhide email
 	
 
+Usage with options
+	$(document).ready(function(){
+		$('span').filter('.protect-emails').protectEmails({
+			action: 'click'
+		});
+	}); 
 
