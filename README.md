@@ -1,12 +1,21 @@
 protectEmails jQuery plugin
 ===========================
 
-This simple plugin protects emails on the page from being stollen by spam bots.
+This simple plugin protects emails on the page from being stollen by spam bots. 
+Mostly every plugin uses `user [at] domain [dot] com` schema. 
+This one is based on html5 data attribute with css content styling.
 License: MIT
 
 Usage
 -----
-
+Add css rule (or leave this for plugin to do so)
+	
+	<style type="text/css">
+		.email-protect:after { 
+			content: attr(data-user) '@' attr(data-domain);
+		}
+	</style>
+	
 Create html element ( `span`, `p`, `strong` etc ) with data attributes:
 
 	<span data-user="admin" data-domain="example.com" class="protect-emails" />
