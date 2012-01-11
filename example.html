@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+
+	<title>jQuery protectEmails plugin</title>
+	
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.protectEmails.js"></script>
+	<style type="text/css">
+		.container { margin: 100px auto; width: 500px; border: 1px solid #DCDCDC; overflow: auto; position: relative; }
+		.email-protect:after { 
+			content: attr(data-user) '@' attr(data-domain);
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<p>
+			<span data-user="info" data-domain="example.com" data-aclass="nowa_klasa" class="email-protect"></span>
+		</p>
+		<p>
+			<span data-user="admin" data-domain="example.com" class="email-protect"></span>
+		</p>
+	</div>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('span').filter('.email-protect').protectEmails();
+		});
+	</script>
+</body>
+</html>
