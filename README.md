@@ -14,14 +14,14 @@ Usage
 Add css rule (or leave this for plugin to do so)
 	
 	<style type="text/css">
-		.email-protect:after { 
+		.protectEmails:after { 
 			content: attr(data-user) '@' attr(data-domain);
 		}
 	</style>
 	
 Create html element ( `span`, `p`, `strong` etc ) with data attributes:
 
-	<span data-user="admin" data-domain="example.com" class="protect-emails" />
+	<span data-user="admin" data-domain="example.com" class="protectEmails" />
 	
 Add jQuery if you haven't done this yet.
 
@@ -30,7 +30,7 @@ Add jQuery if you haven't done this yet.
 Use plugin
 
 	$(document).ready(function(){
-		$('span').filter('.protect-emails').protectEmails();
+		$('span').filter('.protectEmails').protectEmails();
 	}); 
 	
 Options
@@ -39,14 +39,14 @@ Options
 There are several options to configure. Defaults are:
 
 	appendCss : true, // adds required css style
-	selector: '.email-protect', // css selector
+	selector: '.protectEmails', // css selector
 	action : 'hover' // action to unhide email
 	
 
 Usage with options
 
 	$(document).ready(function(){
-		$('span').filter('.protect-emails').protectEmails({
+		$('span').filter('.protectEmails').protectEmails({
 			action: 'click'
 		});
 	}); 
